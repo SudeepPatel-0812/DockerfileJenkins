@@ -1,11 +1,11 @@
 pipeline {
     agent any
+
     stages {
-        stage("install dependencies") {
-            steps {
-                script{
-                    sh 'python --version'
-                }
+        stage("test PythonEnv") {
+            withPythonEnv('python3') {
+                sh 'pip install pytest'
+                sh 'pytest src/'
             }
         }
     }
