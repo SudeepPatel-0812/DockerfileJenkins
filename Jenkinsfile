@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker {image 'python:3.8.0' label 'docker'}}
 
     stages {
         stage("test PythonEnv") {
