@@ -7,11 +7,10 @@ pipeline {
     }
 
     stages {
-        stage("test PythonEnv") {
+        stage("build") {
             steps {
-                withPythonEnv('python3') {
-                    sh 'pip install pytest'
-                    sh 'pytest src/'
+                script{
+                    sh 'python --version'
                 }
             }
         }
